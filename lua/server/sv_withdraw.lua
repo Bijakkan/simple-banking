@@ -36,13 +36,12 @@ AddEventHandler('qb-banking:server:Withdraw', function(account, amount, note, fS
             return
         end
 
-        local low = string.lower(job.name)
-        local grade = string.lower(job.grade.name)
+        -- local low = string.lower(job.name)
+        -- local grade = string.lower(job.grade.name)
 
-        if (SimpleBanking.Config["business_ranks_overrides"][low] and not SimpleBanking.Config["business_ranks_overrides"][low][grade]) then
-
-            return
-        end
+        --if (SimpleBanking.Config["business_ranks_overrides"][low] and not SimpleBanking.Config["business_ranks_overrides"][low][grade]) then
+            --return
+        --end
 
         local result = MySQL.Sync.fetchAll('SELECT * FROM society WHERE name = ?', {job.name})
         local data = result[1]
@@ -67,13 +66,12 @@ AddEventHandler('qb-banking:server:Withdraw', function(account, amount, note, fS
             return
         end
 
-        local low = string.lower(gang.name)
-        local grade = string.lower(gang.grade.name)
+        -- local low = string.lower(gang.name)
+        -- local grade = string.lower(gang.grade.name)
 
-        if (SimpleBanking.Config["gang_ranks_overrides"][low] and not SimpleBanking.Config["gang_ranks_overrides"][low][grade]) then
-
-            return
-        end
+        --if (SimpleBanking.Config["gang_ranks_overrides"][low] and not SimpleBanking.Config["gang_ranks_overrides"][low][grade]) then
+            --return
+        --end
 
         local result = MySQL.Sync.fetchAll('SELECT * FROM society WHERE name= ?', {gang.name})
         local data = result[1]
